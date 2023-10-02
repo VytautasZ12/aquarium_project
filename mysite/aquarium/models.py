@@ -26,4 +26,4 @@ class Fish(models.Model):
     species = models.ForeignKey("Species", on_delete=models.SET_NULL, null=True, related_name="fish")
 
     def __str__(self):
-        return self.pavadinimas
+        return self.fish_title
