@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block "title" %}Fish species{% endblock %}
+
+{% block "content" %}
+<h1>Fish species:</h1>
+{% for specie in species %}
+<p>{{ species.specie_name }}</p>
+<hr>
+{% endfor %}
+{% endblock %}
