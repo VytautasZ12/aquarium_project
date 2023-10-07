@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import SpeciesListView
+from .views import SpecieListView, FishListView
 
 urlpatterns = [
-    path('', SpeciesListView.as_view(), name="species"),
+    path('', SpecieListView.as_view(), name="specie"),
+    path('specie/<int:_pk>/', FishListView.as_view(), name='fish'),
 ]

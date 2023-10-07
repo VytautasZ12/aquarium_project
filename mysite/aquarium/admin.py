@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Fish, Species
+from .models import Fish, Specie
 
 
 # Register your models here.
@@ -12,9 +12,9 @@ class FishAdmin(admin.ModelAdmin):
     search_fields = ['fish_title']
 
 
-class SpeciesAdmin(admin.ModelAdmin):
+class SpecieAdmin(admin.ModelAdmin):
     list_display = ['specie_name', 'display_fish']
 
 
 admin.site.register(Fish, FishAdmin)
-admin.site.register(Species, SpeciesAdmin)
+admin.site.register(Specie, SpecieAdmin)
