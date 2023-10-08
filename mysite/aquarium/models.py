@@ -1,13 +1,15 @@
 from django.db import models
 from PIL import Image
 
+
 # Create your models here.
 class Specie(models.Model):
     specie_name = models.CharField(verbose_name="Species name", max_length=100)
     description = models.TextField(verbose_name="Description", max_length=1000)
+    fishs = models.ManyToManyField(to='Fish', related_name='specie')
 
-    def display_fish(self):
-        fishs = self.fish.all()
+    def display_fishs(self):
+        fishs = self.fishs.all()
         res = ", ".join(fish.fish_title for fish in fishs)
         return res
 

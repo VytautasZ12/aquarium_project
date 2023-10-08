@@ -4,6 +4,7 @@ from django.views import generic
 from .models import Specie, Fish
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.views.generic.edit import FormMixin
 
 
 # Create your views here.
@@ -23,16 +24,21 @@ def index(request):
 class FishListView(generic.ListView):
     model = Fish
     template_name = "fishs.html"
-    context_object_name = "fihs"
+    context_object_name = "fishs"
     paginate_by = 6
 
+
+class FishDetailView(FormMixin, generic.DetailView):
+    model = Fish
+    template_name = "fish.html"
+    context_object_name = "fish"
 
 def species(request):
     paginator = Paginator(Specie.objects.all(), 2)
     page_number = request.GET.get('page')
     paged_species = paginator.get_page(page_number)
     context = {
-        'authors': paged_species
+        'species': paged_species
     }
     return render(request, 'species.html', context=context)
 

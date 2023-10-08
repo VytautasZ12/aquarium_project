@@ -13,7 +13,7 @@ class FishAdmin(admin.ModelAdmin):
 
 
 class SpecieAdmin(admin.ModelAdmin):
-    list_display = ['specie_name', 'display_fish']
+    list_display = ['specie_name', 'display_fishs']
 
 
 admin.site.register(Fish, FishAdmin)
