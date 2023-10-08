@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block "title" %}Akvariumas: Species{% endblock %}
+
+{% block "content" %}
+<h1>Species:</h1>
+<ul>
+    {% for specie in species %}
+    <li><a href="{% url 'specie' specie.id %}">{{ specie.specie_name }}</a></li>
+    {% endfor %}
+</ul>
+<div class="container puslapiai">
+    <nav aria-label="...">
+        {% if species.has_other_pages %}
+        <ul class="pagination pagination-sm justify-content-center">
+            {% for i in species.paginator.page_range %}
+            {% if species.number == i %}
+            <li class="page-item active">
+                <a class="page-link">{{ i }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </nav>
+</div>
+{% endblock %}

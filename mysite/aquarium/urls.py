@@ -1,7 +1,10 @@
 from django.urls import path
-from .views import SpecieListView, FishListView
+from . import views
 
 urlpatterns = [
-    path('', SpecieListView.as_view(), name="specie"),
-    path('specie/<int:_pk>/', FishListView.as_view(), name='fish'),
+    path("", views.index, name="index"),
+    path('species/', views.species, name="species"),
+    path('species/<int:specie_id>', views.species, name='specie'),
+    path('fishs/', views.FishListView.as_view(), name='fishs'),
+    path('search/', views.search, name='search'),
 ]

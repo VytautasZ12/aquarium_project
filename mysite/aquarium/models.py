@@ -1,5 +1,5 @@
 from django.db import models
-
+from PIL import Image
 
 # Create your models here.
 class Specie(models.Model):
@@ -12,7 +12,7 @@ class Specie(models.Model):
         return res
 
     def __str__(self):
-        return self.specie_name
+        return f"{self.specie_name}"
 
     class Meta:
         verbose_name = "Specie"
@@ -24,6 +24,7 @@ class Fish(models.Model):
     origin = models.CharField(verbose_name="Origin", max_length=50)
     description = models.TextField(verbose_name="Description", max_length=1000, help_text="Short fish description")
     species = models.ForeignKey("Specie", on_delete=models.SET_NULL, null=True, related_name="fish")
+    cover = models.ImageField(verbose_name="Cover", upload_to='covers', null=True, blank=True)
 
     def __str__(self):
-        return self.fish_title
+        return f"{self.fish_title}"

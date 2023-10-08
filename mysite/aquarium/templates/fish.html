@@ -1,9 +1,21 @@
 {% extends "base.html" %}
-{% block "title" %}Fish{% endblock %}
+
+{% block "title" %}Aquarium: Fish</title>{% endblock %}
+
 {% block "content" %}
-<ul>
-    {% for fish in fishes %}
-    <li>{{ fish.name }}</li>
-    {% endfor %}
-</ul>
+{% load static %}
+{% if fish.cover %}
+<div>
+    <img src="{{ fish.cover.url }}" class="max-width: 20%" alt="...">
+    {% else %}
+    <img src="{% static 'img/no-image.png' %}" class="max-width: 20%">
+</div>
+{% endif %}
+<div class="container">
+    <h1>{{ fish.fish_title }}</h1>
+    <hr>
+    <p><strong>Specie: </strong>{{ fish.specie }}</p>
+    <p>{{ fish.summary }}</p>
+    <hr>
+</div>
 {% endblock %}

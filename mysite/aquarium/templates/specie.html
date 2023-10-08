@@ -1,9 +1,15 @@
 {% extends "base.html" %}
 
-{% block "title" %}Fish species{% endblock %}
+{% block "title" %}Aquarium: Species{% endblock %}
+
 {% block "content" %}
-<h1>Species:</h1>
-{% for specie in species %}
-<p><a href="{% url 'fish' fish.pk %}">{{ fish.name }}</a></p>
-{% endfor %}
+<div class="container">
+    <h4>{{ specie.specie_name }}</h4>
+    <hr>
+    <p>{{ specie.description | safe }}</p>
+    <h5>Mes turime šias autoriaus knygas:</h5>
+    {% for fish in specie.fishs.all %}
+    <li><a href="{% url 'fish' fishs.pk %}">{{ fish }}</a></li>
+    {% endfor %}
+</div>
 {% endblock %}

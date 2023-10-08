@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block "title" %}Aquarium paieskos rezultatai</title>{% endblock %}
+
+
+{% block "content" %}
+  <h1>Paieškos pagal "{{ query }}" rezultatai:</h1>
+  </br>
+  {% if fishs %}
+  <ul>
+    {% for fish in fishs %}
+      <li>
+        <a href="{% url 'fish' fish.id %}">{{ fish.fish_title }}</a> ({{fish.specie}})
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>Oops. Nieko neradome :(</p>
+  {% endif %}
+
+  {% endblock %}
