@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from django.views import generic
 from .models import Specie, Fish
 from django.db.models import Q
-from django.views.generic.edit import FormMixin
 
 
 # Create your views here.
@@ -27,13 +26,10 @@ class FishListView(generic.ListView):
     paginate_by = 6
 
 
-class FishDetailView(FormMixin, generic.DetailView):
+class FishDetailView(generic.DetailView):
     model = Fish
     template_name = "fish.html"
     context_object_name = "fish"
-
-    def get_success_url(self):
-        return reverse('fish', kwargs={"pk": self.object.id})
 
 
 class SpecieListView(generic.ListView):

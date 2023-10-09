@@ -16,7 +16,7 @@
     <hr>
     <p>{{ specie.description | safe }}</p>
     <h5>Sios rusies zuvys:</h5>
-    {% for fish in specie.fishs.all %}
+    {% for fish in specie.fishes.all %}
     <li><a href="{% url 'fish' fish.pk %}">{{ fish }}</a></li>
     {% endfor %}
 </div>
