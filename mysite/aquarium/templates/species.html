@@ -3,29 +3,36 @@
 {% block "title" %}Akvariumas: Species{% endblock %}
 
 {% block "content" %}
+{% load static %}
 <h1>Species:</h1>
 <ul>
-    {% for specie in species %}
-    <li><a href="{% url 'specie' specie.id %}">{{ specie.specie_name }}</a></li>
-    {% endfor %}
+    {% if species %}
+    <div class="row">
+        {% for specie in species %}
+        <div class="col-md-4 d-flex align-items-stretch">
+            <div class="card mb-4 shadow-sm" style="width:300px">
+                {% if specie.cover %}
+                <img src="{{ specie.cover.url }}" class="card-img-top" alt="...">
+                {% else %}
+                <img src="{% static 'img/no-image.png' %}" class="card-img-top">
+                {% endif %}
+                <div class="card-body">
+                    <p class="card-text"><a href="{{ specie.id }}">{{ specie }}</a></p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <ul>
+        {% for specie in species %}
+        <li><a href="{% url 'specie' specie.id %}">{{ specie }}</a></li>
+        {% endfor %}
+    </ul>
+
 </ul>
-<div class="container puslapiai">
-    <nav aria-label="...">
-        {% if species.has_other_pages %}
-        <ul class="pagination pagination-sm justify-content-center">
-            {% for i in species.paginator.page_range %}
-            {% if species.number == i %}
-            <li class="page-item active">
-                <a class="page-link">{{ i }}</a>
-            </li>
-            {% else %}
-            <li class="page-item">
-                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
-            </li>
-            {% endif %}
-            {% endfor %}
-        </ul>
-        {% endif %}
-    </nav>
+{% endif %}
+</nav>
 </div>
+
 {% endblock %}

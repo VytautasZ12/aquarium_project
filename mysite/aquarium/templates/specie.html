@@ -3,6 +3,14 @@
 {% block "title" %}Aquarium: Species{% endblock %}
 
 {% block "content" %}
+{% load static %}
+{% if specie.cover %}
+<div>
+    <img src="{{ specie.cover.url }}" class="max-width: 20%" alt="...">
+    {% else %}
+    <img src="{% static 'img/no-image.png' %}" class="max-width: 20%">
+</div>
+{% endif %}
 <div class="container">
     <h4>{{ specie.specie_name }}</h4>
     <hr>

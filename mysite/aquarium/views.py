@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.http import HttpResponse
 from django.views import generic
 from .models import Specie, Fish
-from django.core.paginator import Paginator
 from django.db.models import Q
 from django.views.generic.edit import FormMixin
 
@@ -33,14 +32,14 @@ class FishDetailView(FormMixin, generic.DetailView):
     template_name = "fish.html"
     context_object_name = "fish"
 
-def species(request):
-    paginator = Paginator(Specie.objects.all(), 2)
-    page_number = request.GET.get('page')
-    paged_species = paginator.get_page(page_number)
-    context = {
-        'species': paged_species
-    }
-    return render(request, 'species.html', context=context)
+    def get_success_url(self):
+        return reverse('fish', kwargs={"pk": self.object.id})
+
+
+class SpecieListView(generic.ListView):
+    model = Specie
+    template_name = "species.html"
+    context_object_name = "species"
 
 
 def specie(request, specie_id):

@@ -34,7 +34,6 @@
             <a href="?page=1">&laquo; pirmas</a>
             <a href="?page={{ page_obj.previous_page_number }}">atgal</a>
         {% endif %}
-
         <span class="current">
             {{ page_obj.number }} iš {{ page_obj.paginator.num_pages }}
         </span>
