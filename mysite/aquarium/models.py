@@ -6,7 +6,7 @@ from PIL import Image
 class Specie(models.Model):
     specie_name = models.CharField(verbose_name="Species name", max_length=200)
     description = models.TextField(verbose_name="Description", max_length=1000)
-    # fishs = models.ManyToManyField(to='Fish', related_name='specie')
+    fishs = models.ManyToManyField(to='Fish', related_name='specie')
     cover = models.ImageField(verbose_name="Cover", upload_to='covers', null=True, blank=True)
 
     def display_fishs(self):

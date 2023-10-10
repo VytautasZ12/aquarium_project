@@ -48,6 +48,5 @@ def specie(request, specie_id):
 
 def search(request):
     query = request.GET.get('query')
-    search_results = Fish.objects.filter(
-        Q(title__icontains=query) | Q(summary__icontains=query) | Q(species__specie_name__icontains=query))
+    search_results = Fish.objects.filter(Q(fish_title__icontains=query) | Q(origin__icontains=query) | Q(species__specie_name__icontains=query))
     return render(request, 'search.html', {'fishs': search_results, 'query': query})

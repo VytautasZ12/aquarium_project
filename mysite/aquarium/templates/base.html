@@ -30,8 +30,6 @@
     </h1>
     <p>{% trans "Informacine svetaine" %}</p>
 </div>
-
-
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
         <ul class="navbar-nav">
@@ -84,17 +82,17 @@
                     <form action="" method="post">
                         {% csrf_token %}
                         <input name="next" type="hidden" value="{{ redirect_to }}"/>
-<!--                        <select name="language" onchange="this.form.submit()">-->
-<!--                            {% load static %}-->
-<!--                            {% get_current_language as LANGUAGE_CODE %}-->
-<!--                            {% get_available_languages as LANGUAGES %}-->
-<!--                            {% for lang in LANGUAGES %}-->
-<!--                            <option style="background-image: url({% static 'img/lt.png' %});" value="{{ lang.0 }}"-->
-<!--                                    lang.0== LANGUAGE_CODE %} selected="selected">-->
-<!--                                {{ lang.1 }}-->
-<!--                            </option>-->
-<!--                            {% endfor %}-->
-<!--                        </select>-->
+                        <!--                        <select name="language" onchange="this.form.submit()">-->
+                        <!--                            {% load static %}-->
+                        <!--                            {% get_current_language as LANGUAGE_CODE %}-->
+                        <!--                            {% get_available_languages as LANGUAGES %}-->
+                        <!--                            {% for lang in LANGUAGES %}-->
+                        <!--                            <option style="background-image: url({% static 'img/lt.png' %});" value="{{ lang.0 }}"-->
+                        <!--                                    lang.0== LANGUAGE_CODE %} selected="selected">-->
+                        <!--                                {{ lang.1 }}-->
+                        <!--                            </option>-->
+                        <!--                            {% endfor %}-->
+                        <!--                        </select>-->
                     </form>
                 </a>
             </li>
