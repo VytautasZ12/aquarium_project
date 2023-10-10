@@ -1,8 +1,7 @@
-from django.contrib.auth.models import User
 from django.db import models
+from django.contrib.auth.models import User
 from PIL import Image
 from tinymce.models import HTMLField
-from datetime import date
 
 
 # Create your models here.
@@ -37,7 +36,8 @@ class Fish(models.Model):
 
 
 class FishReview(models.Model):
-    fish = models.ForeignKey(to="Fish", verbose_name="Zuvis", on_delete=models.SET_NULL, null=True, blank=True, related_name='reviews')
+    fish = models.ForeignKey(to="Fish", verbose_name="Zuvis", on_delete=models.SET_NULL, null=True, blank=True,
+                             related_name='reviews')
     reviewer = models.ForeignKey(to=User, verbose_name="Vartotojas", on_delete=models.SET_NULL, null=True, blank=True)
     date_created = models.DateTimeField(verbose_name="Data", auto_now_add=True)
     content = models.TextField(verbose_name="Atsiliepimas", max_length=2000)
@@ -46,3 +46,19 @@ class FishReview(models.Model):
         verbose_name = "Atsiliepimas"
         verbose_name_plural = 'Atsiliepimai'
         ordering = ['-date_created']
+
+
+class Profilis(models.Model):
+    user = models.OneToOneField(to=User, verbose_name="Vartotojas", on_delete=models.CASCADE)
+    nuotrauka = models.ImageField(default="profile_pics/default.png", verbose_name="Nuotrauka",
+                                  upload_to="profile_pics")
+
+    def __str__(self):
+        return f"{self.user.username} profilis"
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        super().save(force_insert, force_update, using, update_fields)
+        img = Image.open(self.nuotrauka.path)
+        if img.height > 300 or img.width > 300:
+            img.thumbnail((300, 300))
+            img.save(self.nuotrauka.path)

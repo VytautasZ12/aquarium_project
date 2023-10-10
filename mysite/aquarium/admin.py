@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Fish, Specie, FishReview
+from .models import Fish, Specie, FishReview, Profilis
 
 
 # Register your models here.
@@ -21,3 +21,4 @@ class FishReviewAdmin(admin.ModelAdmin):
 admin.site.register(Fish, FishAdmin)
 admin.site.register(Specie, SpecieAdmin)
 admin.site.register(FishReview, FishReviewAdmin)
+admin.site.register(Profilis)

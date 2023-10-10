@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404, reverse
 from django.http import HttpResponse
@@ -5,7 +6,7 @@ from django.views import generic
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.views.generic.edit import FormMixin
-from .froms import FishReviewForm
+from .froms import FishReviewForm, UserUpdateForm, ProfilisUpdateForm
 from .models import Specie, Fish
 from django.db.models import Q
 from django.shortcuts import redirect
@@ -101,3 +102,24 @@ def register(request):
             return redirect('register')
     else:
         return render(request, 'registration/register.html')
+
+
+@login_required
+def profilis(request):
+    if request.method == "POST":
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfilisUpdateForm(request.POST, request.FILES, instance=request.user.profilis)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, "Profilis atnaujintas")
+            return redirect('profilis')
+
+    u_form = UserUpdateForm(instance=request.user)
+    p_form = ProfilisUpdateForm(instance=request.user.profilis)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+    return render(request, "profilis.html", context=context)

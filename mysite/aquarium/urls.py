@@ -9,4 +9,5 @@ urlpatterns = [
     path('fishs/<int:pk>', views.FishDetailView.as_view(), name='fish'),
     path('search/', views.search, name='search'),
     path('register/', views.register, name="register"),
+    path('profilis/', views.profilis, name='profilis'),
 ]
