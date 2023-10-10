@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from django.views import generic
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
+from django.views.generic.edit import FormMixin
+from .froms import FishReviewForm
 from .models import Specie, Fish
 from django.db.models import Q
 from django.shortcuts import redirect
@@ -30,10 +32,28 @@ class FishListView(generic.ListView):
     paginate_by = 6
 
 
-class FishDetailView(generic.DetailView):
+class FishDetailView(FormMixin, generic.DetailView):
     model = Fish
     template_name = "fish.html"
     context_object_name = "fish"
+    form_class = FishReviewForm
+
+    def get_success_url(self):
+        return reverse('fish', kwargs={"pk": self.object.id})
+
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+        form.instance.fish = self.object
+        form.instance.reviewer = self.request.user
+        form.save()
+        return super().form_valid(form)
 
 
 class SpecieListView(generic.ListView):
