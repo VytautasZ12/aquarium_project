@@ -10,7 +10,7 @@
   <ul>
     {% for fish in fishs %}
       <li>
-        <a href="{% url 'fish' fish.id %}">{{ fish.fish_title }}</a> ({{fish.specie}})
+        <a href="{% url 'fish' fish.id %}">{{ fish.fish_title }}</a>
       </li>
     {% endfor %}
   </ul>

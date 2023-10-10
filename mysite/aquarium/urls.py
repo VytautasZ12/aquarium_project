@@ -8,4 +8,5 @@ urlpatterns = [
     path('fishs/', views.FishListView.as_view(), name='fishs'),
     path('fishs/<int:pk>', views.FishDetailView.as_view(), name='fish'),
     path('search/', views.search, name='search'),
+    path('register/', views.register, name="register"),
 ]
