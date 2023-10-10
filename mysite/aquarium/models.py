@@ -1,11 +1,14 @@
+from django.contrib.auth.models import User
 from django.db import models
 from PIL import Image
+from tinymce.models import HTMLField
+from datetime import date
 
 
 # Create your models here.
 class Specie(models.Model):
     specie_name = models.CharField(verbose_name="Species name", max_length=200)
-    description = models.TextField(verbose_name="Description", max_length=2000)
+    description = HTMLField(verbose_name="Description", max_length=2000)
     fishs = models.ManyToManyField(to='Fish', related_name='specie')
     cover = models.ImageField(verbose_name="Cover", upload_to='covers', null=True, blank=True)
 
@@ -31,3 +34,15 @@ class Fish(models.Model):
 
     def __str__(self):
         return f"{self.fish_title}"
+
+
+class FishReview(models.Model):
+    fish = models.ForeignKey(to="Fish", verbose_name="Zuvis", on_delete=models.SET_NULL, null=True, blank=True, related_name='reviews')
+    reviewer = models.ForeignKey(to=User, verbose_name="Vartotojas", on_delete=models.SET_NULL, null=True, blank=True)
+    date_created = models.DateTimeField(verbose_name="Data", auto_now_add=True)
+    content = models.TextField(verbose_name="Atsiliepimas", max_length=2000)
+
+    class Meta:
+        verbose_name = "Atsiliepimas"
+        verbose_name_plural = 'Atsiliepimai'
+        ordering = ['-date_created']
