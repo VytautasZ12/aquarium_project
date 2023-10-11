@@ -56,6 +56,10 @@ class Profilis(models.Model):
     def __str__(self):
         return f"{self.user.username} profilis"
 
+    class Meta:
+        verbose_name = "Profilis"
+        verbose_name_plural = 'Profilis'
+
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
         super().save(force_insert, force_update, using, update_fields)
         img = Image.open(self.nuotrauka.path)
