@@ -38,9 +38,9 @@ class Fish(models.Model):
 class FishReview(models.Model):
     fish = models.ForeignKey(to="Fish", verbose_name="Zuvis", on_delete=models.SET_NULL, null=True, blank=True,
                              related_name='reviews')
-    reviewer = models.ForeignKey(to=User, verbose_name="Vartotojas", on_delete=models.SET_NULL, null=True, blank=True)
+    reviewer = models.ForeignKey(to=User, verbose_name="Vartotojas", on_delete=models.SET_NULL, null=True)
     date_created = models.DateTimeField(verbose_name="Data", auto_now_add=True)
-    content = models.TextField(verbose_name="Atsiliepimas", max_length=2000)
+    content = models.TextField(verbose_name="Tekstas", max_length=2000)
 
     class Meta:
         verbose_name = "Atsiliepimas"

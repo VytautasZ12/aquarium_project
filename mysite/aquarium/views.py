@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.views.generic.edit import FormMixin
 from .froms import FishReviewForm, UserUpdateForm, ProfilisUpdateForm
-from .models import Specie, Fish
+from .models import Specie, Fish, FishReview
 from django.db.models import Q
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -64,13 +64,17 @@ class SpecieListView(generic.ListView):
     context_object_name = "species"
 
 
-# class UserCommentListView(LoginRequiredMixin, generic.ListView):
-#     model = Comment
-#     context_object_name = "comments"
-#     template_name = "usercomments.html"
-#
-#     def get_queryset(self):
-#         return Comment.objects.filter(user=self.request.user)
+class FishReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView):
+    model = FishReview
+    template_name = "review_delete.html"
+    context_object_name = 'review'
+
+    def get_success_url(self):
+        return reverse('fish', kwargs={"pk": self.kwargs['fish_id']})
+
+    def test_func(self):
+        return self.get_object().reviewer == self.request.user
+
 
 
 def specie(request, specie_id):
