@@ -25,8 +25,8 @@ class Specie(models.Model):
 
 
 class Fish(models.Model):
-    fish_title = models.CharField(verbose_name="Fish title", max_length=100)
-    origin = models.CharField(verbose_name="Origin", max_length=100)
+    fish_title = models.CharField(verbose_name="Fish title", max_length=150)
+    origin = models.CharField(verbose_name="Origin", max_length=150)
     description = models.TextField(verbose_name="Description", max_length=2000, help_text="Short fish description")
     species = models.ForeignKey("Specie", on_delete=models.SET_NULL, null=True, related_name="fishes")
     cover = models.ImageField(verbose_name="Cover", upload_to='covers', null=True, blank=True)
