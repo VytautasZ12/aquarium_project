@@ -11,4 +11,5 @@ urlpatterns = [
     path('register/', views.register, name="register"),
     path('profilis/', views.profilis, name='profilis'),
     path('fishs/<int:fish_id>/reviewdelete/<int:pk>/', views.FishReviewDeleteView.as_view(), name="review_delete"),
+    path('fishs/<int:fish_id>/reviewedit/<int:pk>/', views.FishReviewUpdateView.as_view(), name="review_edit"),
 ]

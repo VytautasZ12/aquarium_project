@@ -76,6 +76,24 @@ class FishReviewDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.Dele
         return self.get_object().reviewer == self.request.user
 
 
+class FishReviewUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = FishReview
+    template_name = "review_edit.html"
+    context_object_name = 'review'
+    fields = ['content']
+
+    def get_success_url(self):
+        return reverse('fish', kwargs={"pk": self.kwargs['fish_id']})
+
+    def test_func(self):
+        return self.get_object().reviewer == self.request.user
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.post = Fish.objects.get(pk=self.kwargs['fish_id'])
+        form.save()
+        return super().form_valid(form)
+
 
 def specie(request, specie_id):
     specie = get_object_or_404(Specie, pk=specie_id)
