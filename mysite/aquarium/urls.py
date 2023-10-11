@@ -10,4 +10,5 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('register/', views.register, name="register"),
     path('profilis/', views.profilis, name='profilis'),
+    path('usercomments/', views.FishDetailView.as_view(), name='usercomments'),
 ]

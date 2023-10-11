@@ -10,6 +10,7 @@ from .froms import FishReviewForm, UserUpdateForm, ProfilisUpdateForm
 from .models import Specie, Fish
 from django.db.models import Q
 from django.shortcuts import redirect
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 
 # Create your views here.
@@ -61,6 +62,15 @@ class SpecieListView(generic.ListView):
     model = Specie
     template_name = "species.html"
     context_object_name = "species"
+
+
+# class UserCommentListView(LoginRequiredMixin, generic.ListView):
+#     model = Comment
+#     context_object_name = "comments"
+#     template_name = "usercomments.html"
+#
+#     def get_queryset(self):
+#         return Comment.objects.filter(user=self.request.user)
 
 
 def specie(request, specie_id):
