@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from PIL import Image
 from tinymce.models import HTMLField
-
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 class Specie(models.Model):

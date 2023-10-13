@@ -1,13 +1,14 @@
 {% extends "base.html" %}
+{% load i18n %}
 
-{% block "title" %}Aquarium{% endblock %}
+{% block "title" %}{% trans "Aquarium" %}{% endblock %}
 
 {% block "content" %}
-<h1>Pagrindinis</h1>
+<h1>{% trans "Main page" %}</h1>
 <p></p>
-<p>Kolkas tiek:</p>
+<p>{% trans "For now" %}:</p>
 <ul>
-    <li><strong>Species:</strong> {{ num_species }}</li>
-    <li><strong>Fish:</strong> {{ num_fish }}</li>
+    <li><strong>{% trans "Species" %}:</strong> {{ num_species }}</li>
+    <li><strong>{% trans "Fish" %}:</strong> {{ num_fish }}</li>
 </ul>
 {% endblock %}
