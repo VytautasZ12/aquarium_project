@@ -19,16 +19,8 @@
     <p>{{ fish.description }}</p>
     <hr>
     {% if user.is_authenticated %}
-    <div class="fieldWrapper">
-        <h4>Palikite atsiliepimą:</h4>
-        <form action="" method="post">
-            {% csrf_token %}
-            {{ form.content }}</br>
-            <input type="submit" value="Komentuoti">
-        </form>
-    </div>
-    {% endif %}
-    <h4>Atsiliepimai:</h4>
+    <h4>Komentarai:</h4>
+    <a>Komentaru: {{ fish.num_reviews }}</a>
     {% for review in fish.reviews.all %}
     <hr>
     <img class="rounded-circle" style="width:2%" src="{{ review.reviewer.profilis.nuotrauka.url }}"
@@ -42,6 +34,16 @@
     </div>
     {% endif %}
     {% endfor %}
+    <hr>
+    <div class="fieldWrapper">
+        <h4>Palikite komentara:</h4>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.content }}</br>
+            <input type="submit" value="Komentuoti">
+        </form>
+    </div>
+    {% endif %}
 </div>
 </article>
 {% endblock %}

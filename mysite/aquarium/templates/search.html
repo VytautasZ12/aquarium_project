@@ -4,18 +4,18 @@
 
 
 {% block "content" %}
-  <h1>Paieškos pagal "{{ query }}" rezultatai:</h1>
-  </br>
-  {% if fishs %}
-  <ul>
+<h1>Paieškos pagal "{{ query }}" rezultatai:</h1>
+</br>
+{% if fishs %}
+<ul>
     {% for fish in fishs %}
-      <li>
+    <li>
         <a href="{% url 'fish' fish.id %}">{{ fish.fish_title }}</a>
-      </li>
+    </li>
     {% endfor %}
-  </ul>
-  {% else %}
-    <p>Oops. Nieko neradome :(</p>
-  {% endif %}
+</ul>
+{% else %}
+<p>Oops. Nieko neradome :(</p>
+{% endif %}
 
-  {% endblock %}
+{% endblock %}

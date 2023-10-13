@@ -34,6 +34,9 @@ class Fish(models.Model):
     def __str__(self):
         return f"{self.fish_title}"
 
+    def num_reviews(self):
+        return self.reviews.count()
+
 
 class FishReview(models.Model):
     fish = models.ForeignKey(to="Fish", verbose_name="Zuvis", on_delete=models.SET_NULL, null=True, blank=True,
