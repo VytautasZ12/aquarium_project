@@ -14,8 +14,8 @@
 <div class="container">
     <h4>{{ specie.specie_name }}</h4>
     <hr>
-    <p>{{ specie.description | safe }}</p>
     <h5>Sios rusies zuvys:</h5>
+    <p>{{ specie.description | safe }}</p>
     {% for fish in specie.fishes.all %}
     <li><a href="{% url 'fish' fish.pk %}">{{ fish }}</a></li>
     {% endfor %}

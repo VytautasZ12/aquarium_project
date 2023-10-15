@@ -4,6 +4,7 @@ from PIL import Image
 from tinymce.models import HTMLField
 from django.utils.translation import gettext_lazy as _
 
+
 # Create your models here.
 class Specie(models.Model):
     specie_name = models.CharField(verbose_name="Species name", max_length=200)
