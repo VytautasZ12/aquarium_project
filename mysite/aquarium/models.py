@@ -7,10 +7,10 @@ from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 class Specie(models.Model):
-    specie_name = models.CharField(verbose_name="Species name", max_length=200)
-    description = HTMLField(verbose_name="Description", max_length=5000)
+    specie_name = models.CharField(verbose_name=_("Species name"), max_length=200)
+    description = HTMLField(verbose_name=_("Description"), max_length=5000)
     fishs = models.ManyToManyField(to='Fish', related_name='specie')
-    cover = models.ImageField(verbose_name="Cover", upload_to='covers', null=True, blank=True)
+    cover = models.ImageField(verbose_name=_("Cover"), upload_to='covers', null=True, blank=True)
 
     def display_fishs(self):
         fishs = self.fishs.all()
@@ -26,11 +26,11 @@ class Specie(models.Model):
 
 
 class Fish(models.Model):
-    fish_title = models.CharField(verbose_name="Fish title", max_length=150)
-    origin = models.CharField(verbose_name="Origin", max_length=150)
-    description = models.TextField(verbose_name="Description", max_length=5000, help_text="Short fish description")
+    fish_title = models.CharField(verbose_name=_("Fish title"), max_length=150)
+    origin = models.CharField(verbose_name=_("Origin"), max_length=150)
+    description = models.TextField(verbose_name=_("Description"), max_length=5000, help_text=_("Short fish description"))
     species = models.ForeignKey("Specie", on_delete=models.SET_NULL, null=True, related_name="fishes")
-    cover = models.ImageField(verbose_name="Cover", upload_to='covers', null=True, blank=True)
+    cover = models.ImageField(verbose_name=_("Cover"), upload_to='covers', null=True, blank=True)
 
     def __str__(self):
         return f"{self.fish_title}"
@@ -47,13 +47,13 @@ class FishReview(models.Model):
     content = models.TextField(verbose_name="Tekstas", max_length=2000)
 
     class Meta:
-        verbose_name = "Atsiliepimas"
-        verbose_name_plural = 'Atsiliepimai'
+        verbose_name = _("Review")
+        verbose_name_plural = _('Reviews')
         ordering = ['-date_created']
 
 
 class Profilis(models.Model):
-    user = models.OneToOneField(to=User, verbose_name="Vartotojas", on_delete=models.CASCADE)
+    user = models.OneToOneField(to=User, verbose_name=_("User"), on_delete=models.CASCADE)
     nuotrauka = models.ImageField(default="profile_pics/default.png", verbose_name="Nuotrauka",
                                   upload_to="profile_pics")
 

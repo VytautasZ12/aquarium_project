@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 21:24+0300\n"
-"PO-Revision-Date: 2023-10-15 21:26+0300\n"
+"POT-Creation-Date: 2023-10-15 21:44+0300\n"
+"PO-Revision-Date: 2023-10-15 21:44+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -17,6 +17,42 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && (n%100<11 || n%100>19) ? 0 : "
 "n%10>=2 && n%10<=9 && (n%100<11 || n%100>19) ? 1 : 2);\n"
 "X-Generator: Poedit 3.4\n"
+
+#: .\models.py:10
+msgid "Species name"
+msgstr "Rūšies pavadinimas"
+
+#: .\models.py:11 .\models.py:31
+msgid "Description"
+msgstr "Aprašymas"
+
+#: .\models.py:13 .\models.py:33
+msgid "Cover"
+msgstr "Viršelis"
+
+#: .\models.py:29
+msgid "Fish title"
+msgstr "Žuvies pavadinimas"
+
+#: .\models.py:30
+msgid "Origin"
+msgstr "Kilmė"
+
+#: .\models.py:31
+msgid "Short fish description"
+msgstr "Trumpas žuvies aprašymas"
+
+#: .\models.py:50
+msgid "Review"
+msgstr "Atsiliepimas"
+
+#: .\models.py:51
+msgid "Reviews"
+msgstr "Atsiliepimai"
+
+#: .\models.py:56
+msgid "User"
+msgstr "Vartotojas"
 
 #: .\templates\base.html:29 .\templates\index.html:4
 msgid "Aquarium"
@@ -68,7 +104,7 @@ msgstr "Kilmė:"
 
 #: .\templates\fish.html:22 .\templates\fish.html:23
 msgid "Comments:"
-msgstr "Komentarai"
+msgstr "Komentarai:"
 
 #: .\templates\fish.html:32
 msgid "Edit"
@@ -181,6 +217,25 @@ msgstr "Šios rūšies žuvys:"
 #: .\templates\species.html:7
 msgid "Species:"
 msgstr "Rūšys:"
+
+#: .\views.py:123
+#, python-format
+msgid "Username %s already exists!"
+msgstr "Vartotojo vardas %s užimtas!"
+
+#: .\views.py:127
+#, python-format
+msgid "Email %s already exists!"
+msgstr "El. pašto adresas %s užimtas!"
+
+#: .\views.py:131
+#, python-format
+msgid "User %s registered!"
+msgstr "Vartotojas %s registruotas!"
+
+#: .\views.py:134
+msgid "Passwords do not match!"
+msgstr "Slaptažodžiai nesutampa!"
 
 #, fuzzy
 #~| msgid "Comment edit"

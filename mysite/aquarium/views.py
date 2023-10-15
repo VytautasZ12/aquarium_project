@@ -11,6 +11,7 @@ from .models import Specie, Fish, FishReview
 from django.db.models import Q
 from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.utils.translation import gettext as _
 
 
 # Create your views here.
@@ -119,18 +120,18 @@ def register(request):
         password2 = request.POST['password2']
         if password == password2:
             if User.objects.filter(username=username).exists():
-                messages.error(request, ("Username %s already exists!") % username)
+                messages.error(request, _("Username %s already exists!") % username)
                 return redirect('register')
             else:
                 if User.objects.filter(email=email).exists():
-                    messages.error(request, ("Email %s already exists!") % email)
+                    messages.error(request, _("Email %s already exists!") % email)
                     return redirect('register')
                 else:
                     User.objects.create_user(username=username, email=email, password=password)
-                    messages.info(request, ("User %s registered!") % username)
+                    messages.info(request, _("User %s registered!") % username)
                     return redirect('login')
         else:
-            messages.error(request, ('Passwords do not match!'))
+            messages.error(request, _('Passwords do not match!'))
             return redirect('register')
     else:
         return render(request, 'registration/register.html')
