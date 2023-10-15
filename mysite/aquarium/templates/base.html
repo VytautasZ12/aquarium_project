@@ -34,13 +34,13 @@
     <div class="container-fluid">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="{% url 'index' %}">HOME</a>
+                <a class="nav-link active" href="{% url 'index' %}">{% trans "Home" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="{% url 'species' %}">Species</a>
+                <a class="nav-link active" href="{% url 'species' %}">{% trans "Species" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="{% url 'fishs' %}">Fish</a>
+                <a class="nav-link active" href="{% url 'fishs' %}">{% trans "Fish" %}</a>
             </li>
             <li>
                 <form action="{% url 'search' %}" method="get" class="form-inline my-2 my-md-0">
@@ -63,14 +63,14 @@
                 <a class="nav-link active" href=""></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="{% url 'logout' %}">Logout</a>
+                <a class="nav-link active" href="{% url 'logout' %}">{% trans "Logout" %}</a>
             </li>
             {% else %}
             <li class="nav-item">
-                <a class="nav-link active" href="{% url 'register' %}">Register</a>
+                <a class="nav-link active" href="{% url 'register' %}">{% trans "Register" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link active" href="{% url 'login' %}">Login</a>
+                <a class="nav-link active" href="{% url 'login' %}">{% trans "Login" %}</a>
             </li>
             {% endif %}
             <li class="nav-item">

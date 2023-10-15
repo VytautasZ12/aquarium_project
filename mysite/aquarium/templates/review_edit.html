@@ -1,16 +1,17 @@
 {% extends "base.html" %}
-{% block "title" %}Aquarium: Komentaro redagavimas{% endblock %}
+{% load i18n %}
+{% block "title" %}{% trans "Aquarium: Comment edit" %}{% endblock %}
 {% load crispy_forms_tags %}
 {% block "content" %}
 <div class="content-section">
     <form method="POST">
         {% csrf_token %}
         <fieldset class="form-group">
-            <legend class="border-bottom mb-4">Komentaro redagavimas</legend>
+            <legend class="border-bottom mb-4">{% trans "Comment edit" %}</legend>
             {{ form|crispy }}
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Išsaugoti</button>
+            <button class="btn btn-outline-info" type="submit">{% trans "Save" %}</button>
         </div>
     </form>
 </div>

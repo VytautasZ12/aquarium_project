@@ -8,7 +8,7 @@ from django.utils.translation import gettext_lazy as _
 # Create your models here.
 class Specie(models.Model):
     specie_name = models.CharField(verbose_name="Species name", max_length=200)
-    description = HTMLField(verbose_name="Description", max_length=2000)
+    description = HTMLField(verbose_name="Description", max_length=5000)
     fishs = models.ManyToManyField(to='Fish', related_name='specie')
     cover = models.ImageField(verbose_name="Cover", upload_to='covers', null=True, blank=True)
 
@@ -28,7 +28,7 @@ class Specie(models.Model):
 class Fish(models.Model):
     fish_title = models.CharField(verbose_name="Fish title", max_length=150)
     origin = models.CharField(verbose_name="Origin", max_length=150)
-    description = models.TextField(verbose_name="Description", max_length=2000, help_text="Short fish description")
+    description = models.TextField(verbose_name="Description", max_length=5000, help_text="Short fish description")
     species = models.ForeignKey("Specie", on_delete=models.SET_NULL, null=True, related_name="fishes")
     cover = models.ImageField(verbose_name="Cover", upload_to='covers', null=True, blank=True)
 

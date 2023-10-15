@@ -6,7 +6,7 @@ from django.views import generic
 from django.views.decorators.csrf import csrf_protect
 from django.contrib import messages
 from django.views.generic.edit import FormMixin
-from .froms import FishReviewForm, UserUpdateForm, ProfilisUpdateForm
+from .forms import FishReviewForm, UserUpdateForm, ProfilisUpdateForm
 from .models import Specie, Fish, FishReview
 from django.db.models import Q
 from django.shortcuts import redirect

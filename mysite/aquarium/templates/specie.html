@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
-{% block "title" %}Aquarium: Species{% endblock %}
+{% load i18n %}
+{% block "title" %}{% trans "Aquarium: Species" %}{% endblock %}
 
 {% block "content" %}
 {% load static %}
@@ -14,8 +14,8 @@
 <div class="container">
     <h4>{{ specie.specie_name }}</h4>
     <hr>
-    <h5>Sios rusies zuvys:</h5>
     <p>{{ specie.description | safe }}</p>
+    <h5>{% trans "This specie fishs:" %}</h5>
     {% for fish in specie.fishes.all %}
     <li><a href="{% url 'fish' fish.pk %}">{{ fish }}</a></li>
     {% endfor %}

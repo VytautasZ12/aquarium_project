@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-
-{% block "title" %}Aquarium paieskos rezultatai</title>{% endblock %}
+{% load i18n %}
+{% block "title" %}{% trans "Aquarium search results" %}</title>{% endblock %}
 
 
 {% block "content" %}
-<h1>Paieškos pagal "{{ query }}" rezultatai:</h1>
+<h1>{% trans "Search by "{{ query }}" results:" %}</h1>
 </br>
 {% if fishs %}
 <ul>
@@ -15,7 +15,7 @@
     {% endfor %}
 </ul>
 {% else %}
-<p>Oops. Nieko neradome :(</p>
+<p>{% trans "Oops. Didn't find anything" :( %}</p>
 {% endif %}
 
 {% endblock %}

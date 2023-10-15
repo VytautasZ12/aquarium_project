@@ -1,4 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -7,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-13 13:47+0300\n"
-"PO-Revision-Date: 2023-10-13 13:49+0300\n"
+"POT-Creation-Date: 2023-10-15 21:24+0300\n"
+"PO-Revision-Date: 2023-10-15 21:26+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -27,22 +26,163 @@ msgstr "Akvariumas"
 msgid "Information site"
 msgstr "Informacinė svetainė"
 
+#: .\templates\base.html:37
+msgid "Home"
+msgstr "Pradžia"
+
+#: .\templates\base.html:40 .\templates\index.html:30
+msgid "Species"
+msgstr "Rūšys"
+
+#: .\templates\base.html:43 .\templates\index.html:31
+msgid "Fish"
+msgstr "Žuvys"
+
 #: .\templates\base.html:47
 msgid "Search"
 msgstr "Paieška"
+
+#: .\templates\base.html:66
+msgid "Logout"
+msgstr "Atsijungti"
+
+#: .\templates\base.html:70
+msgid "Register"
+msgstr "Registruotis"
+
+#: .\templates\base.html:73
+msgid "Login"
+msgstr "Prisijungti"
+
+#: .\templates\fish.html:3
+msgid "Aquarium: Fish"
+msgstr "Akvariumas: Žuvys"
+
+#: .\templates\fish.html:17
+msgid "Specie:"
+msgstr "Rūšis:"
+
+#: .\templates\fish.html:18
+msgid "Origin:"
+msgstr "Kilmė:"
+
+#: .\templates\fish.html:22 .\templates\fish.html:23
+msgid "Comments:"
+msgstr "Komentarai"
+
+#: .\templates\fish.html:32
+msgid "Edit"
+msgstr "Redaguoti"
+
+#: .\templates\fish.html:33
+msgid "Delete"
+msgstr "Ištrinti"
+
+#: .\templates\fish.html:39
+msgid "Leave comment"
+msgstr "Palikti komentarą"
+
+#: .\templates\fishs.html:3
+msgid "Aquarium: Fishs"
+msgstr "Akvariumas: Žuvys"
+
+#: .\templates\fishs.html:7
+msgid "Fish:"
+msgstr "Žuvis:"
+
+#: .\templates\fishs.html:28
+msgid "Fishs:"
+msgstr "Žuvys:"
+
+#: .\templates\fishs.html:34
+msgid "first"
+msgstr "pirmas"
+
+#: .\templates\fishs.html:35
+msgid "back"
+msgstr "atgal"
+
+#: .\templates\fishs.html:41
+msgid "forward"
+msgstr "pirmyn"
+
+#: .\templates\fishs.html:42
+msgid "last"
+msgstr "paskutinis"
 
 #: .\templates\index.html:7
 msgid "Main page"
 msgstr "Pagrindinis puslapis"
 
-#: .\templates\index.html:9
+#: .\templates\index.html:28
 msgid "For now"
 msgstr "Kolkas tiek"
 
-#: .\templates\index.html:11
-msgid "Species"
-msgstr "Rūšys"
+#: .\templates\profilis.html:3
+msgid "Aquarium: User profile"
+msgstr "Akvariumas: Profilio informacija"
 
-#: .\templates\index.html:12
-msgid "Fish"
-msgstr "Žuvys"
+#: .\templates\profilis.html:18
+msgid "Profile info"
+msgstr "Profilio informacija"
+
+#: .\templates\review_delete.html:3
+msgid "Aquarium: Comment delete"
+msgstr "Akvariumas: Komentaro trynimas"
+
+#: .\templates\review_delete.html:10
+msgid "Delete comment"
+msgstr "Ištrinti komentarą"
+
+#: .\templates\review_delete.html:11
+msgid "You wanna delete this comment"
+msgstr "Ar tikrai norite ištrinti komentarą"
+
+#: .\templates\review_delete.html:14
+msgid "Yes, delete"
+msgstr "Taip, ištrinti"
+
+#: .\templates\review_delete.html:15
+msgid "Cancel"
+msgstr "Atšaukti"
+
+#: .\templates\review_edit.html:3
+msgid "Aquarium: Comment edit"
+msgstr "Akvariumas: Komentaro redagavimas"
+
+#: .\templates\review_edit.html:10
+msgid "Comment edit"
+msgstr "Redaguoti komentarą"
+
+#: .\templates\review_edit.html:14
+msgid "Save"
+msgstr "Išsaugoti"
+
+#: .\templates\search.html:3
+msgid "Aquarium search results"
+msgstr "Akvariumas: paieškos rezultatai"
+
+#: .\templates\search.html:7
+msgid "Search by "
+msgstr "Paieška "
+
+#: .\templates\search.html:18
+msgid "Oops. Didn't find anything"
+msgstr "Oops. Nieko neradome"
+
+#: .\templates\specie.html:3 .\templates\species.html:3
+msgid "Aquarium: Species"
+msgstr "Akvariumas: Rūšys"
+
+#: .\templates\specie.html:18
+msgid "This specie fishs:"
+msgstr "Šios rūšies žuvys:"
+
+#: .\templates\species.html:7
+msgid "Species:"
+msgstr "Rūšys:"
+
+#, fuzzy
+#~| msgid "Comment edit"
+#~ msgid "Comment"
+#~ msgstr "Redaguoti komentarą"

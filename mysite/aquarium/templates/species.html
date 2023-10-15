@@ -1,10 +1,10 @@
 {% extends "base.html" %}
-
-{% block "title" %}Akvariumas: Species{% endblock %}
+{% load i18n %}
+{% block "title" %}{% trans "Aquarium: Species" %}{% endblock %}
 
 {% block "content" %}
 {% load static %}
-<h1>Species:</h1>
+<h1>{% trans "Species:" %}</h1>
 <ul>
     {% if species %}
     <div class="row">

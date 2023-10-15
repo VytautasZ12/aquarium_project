@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
-{% block "title" %}Aquarium: Fish</title>{% endblock %}
+{% load i18n %}
+{% block "title" %}{% trans "Aquarium: Fish" %}</title>{% endblock %}
 
 {% block "content" %}
 {% load static %}
@@ -14,13 +14,13 @@
 <div class="container">
     <h1>{{ fish.fish_title }}</h1>
     <hr>
-    <p><strong>Specie: </strong>{{ fish.species }}</p>
-    <p><strong>Origin: </strong>{{ fish.origin }}</p>
+    <p><strong>{% trans "Specie:" %} </strong>{{ fish.species }}</p>
+    <p><strong>{% trans "Origin:" %} </strong>{{ fish.origin }}</p>
     <p>{{ fish.description }}</p>
     <hr>
     {% if user.is_authenticated %}
-    <h4>Komentarai:</h4>
-    <a>Komentaru: {{ fish.num_reviews }}</a>
+    <h4>{% trans "Comments:" %}</h4>
+    <a>{% trans "Comments:" %} {{ fish.num_reviews }}</a>
     {% for review in fish.reviews.all %}
     <hr>
     <img class="rounded-circle" style="width:2%" src="{{ review.reviewer.profilis.nuotrauka.url }}"
@@ -29,18 +29,18 @@
     <p>{{ review.content|safe }}</p>
     {% if review.reviewer == user %}
     <div>
-        <a class="btn btn-secondary btn-sm mb-2" href="{% url 'review_edit' fish.id review.id %}">Redaguoti</a>
-        <a class="btn btn-danger btn-sm mb-2" href="{% url 'review_delete' fish.id review.id %}">Ištrinti</a>
+        <a class="btn btn-secondary btn-sm mb-2" href="{% url 'review_edit' fish.id review.id %}">{% trans "Edit" %}</a>
+        <a class="btn btn-danger btn-sm mb-2" href="{% url 'review_delete' fish.id review.id %}">{% trans "Delete" %}</a>
     </div>
     {% endif %}
     {% endfor %}
     <hr>
     <div class="fieldWrapper">
-        <h4>Palikite komentara:</h4>
+        <h4>{% trans "Leave comment" %}</h4>
         <form action="" method="post">
             {% csrf_token %}
             {{ form.content }}</br>
-            <input type="submit" value="Komentuoti">
+            <input type="submit" value="Comment">
         </form>
     </div>
     {% endif %}

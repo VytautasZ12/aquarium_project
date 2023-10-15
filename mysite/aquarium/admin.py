@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Fish, Specie, FishReview, Profilis
+from .models import (Fish,
+                     Specie,
+                     FishReview,
+                     Profilis)
 
 
 # Register your models here.
