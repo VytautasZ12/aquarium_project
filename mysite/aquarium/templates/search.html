@@ -4,7 +4,7 @@
 
 
 {% block "content" %}
-<h1>{% trans "Search by "{{ query }}" results:" %}</h1>
+<h1>Search by "{{ query }}" results:</h1>
 </br>
 {% if fishs %}
 <ul>
@@ -15,7 +15,7 @@
     {% endfor %}
 </ul>
 {% else %}
-<p>{% trans "Oops. Didn't find anything" :( %}</p>
+<p>Oops. Didn't find anything" :(</p>
 {% endif %}
 
 {% endblock %}
