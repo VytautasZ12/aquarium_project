@@ -30,7 +30,8 @@
     {% if review.reviewer == user %}
     <div>
         <a class="btn btn-secondary btn-sm mb-2" href="{% url 'review_edit' fish.id review.id %}">{% trans "Edit" %}</a>
-        <a class="btn btn-danger btn-sm mb-2" href="{% url 'review_delete' fish.id review.id %}">{% trans "Delete" %}</a>
+        <a class="btn btn-danger btn-sm mb-2" href="{% url 'review_delete' fish.id review.id %}">{% trans "Delete"
+            %}</a>
     </div>
     {% endif %}
     {% endfor %}

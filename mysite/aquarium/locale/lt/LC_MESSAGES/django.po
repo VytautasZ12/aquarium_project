@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-15 21:44+0300\n"
-"PO-Revision-Date: 2023-10-15 21:44+0300\n"
+"POT-Creation-Date: 2023-10-16 07:00+0300\n"
+"PO-Revision-Date: 2023-10-16 07:02+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -82,11 +82,11 @@ msgstr "Paieška"
 msgid "Logout"
 msgstr "Atsijungti"
 
-#: .\templates\base.html:70
+#: .\templates\base.html:70 .\templates\registration\register.html:31
 msgid "Register"
 msgstr "Registruotis"
 
-#: .\templates\base.html:73
+#: .\templates\base.html:73 .\templates\registration\register.html:33
 msgid "Login"
 msgstr "Prisijungti"
 
@@ -110,11 +110,7 @@ msgstr "Komentarai:"
 msgid "Edit"
 msgstr "Redaguoti"
 
-#: .\templates\fish.html:33
-msgid "Delete"
-msgstr "Ištrinti"
-
-#: .\templates\fish.html:39
+#: .\templates\fish.html:40
 msgid "Leave comment"
 msgstr "Palikti komentarą"
 
@@ -161,6 +157,67 @@ msgstr "Akvariumas: Profilio informacija"
 #: .\templates\profilis.html:18
 msgid "Profile info"
 msgstr "Profilio informacija"
+
+#: .\templates\registration\login.html:3
+msgid "Aquarium: Prisijungimas"
+msgstr "Akvariumas: Prisijungimas"
+
+#: .\templates\registration\login.html:7
+msgid "Login error, try again!"
+msgstr "Prisijungimo klaida, bandykite dar kartą!"
+
+#: .\templates\registration\login.html:14
+msgid "User:"
+msgstr "Vartotojas:"
+
+#: .\templates\registration\login.html:18
+#: .\templates\registration\register.html:23
+msgid "Password:"
+msgstr "Slaptažodis:"
+
+#: .\templates\registration\login.html:26
+msgid "Forgot password?"
+msgstr "Pamiršote slaptažodį?"
+
+#: .\templates\registration\register.html:3
+msgid "Aquarium: Registration"
+msgstr "Akvariumas: Registracija"
+
+#: .\templates\registration\register.html:8
+msgid "Registration"
+msgstr "Registruotis"
+
+#: .\templates\registration\register.html:12
+msgid "User name"
+msgstr "Vartotojo vardas"
+
+#: .\templates\registration\register.html:14
+msgid "Until 150 simbols"
+msgstr "Iki 150 simbolių"
+
+#: .\templates\registration\register.html:17
+msgid "Email"
+msgstr "El. paštas"
+
+#: .\templates\registration\register.html:19
+msgid "Dont share with anybody."
+msgstr "Nesidalinkite su niekuo."
+
+#: .\templates\registration\register.html:20
+msgid "Need for sending new password."
+msgstr "Reikalingas naujam slaptažodžiui gauti."
+
+#: .\templates\registration\register.html:25
+msgid "Not less then 8 simbols. Cant be only numbers."
+msgstr "Ne mažiau nei 8 simboliai. Negali būti vien skaičiai."
+
+#: .\templates\registration\register.html:28
+msgid "Repeat password"
+msgstr "Pakartokite slaptažodį"
+
+#: .\templates\registration\register.html:33
+msgid "If registered earlier,"
+msgstr "Jei registravotės anksčiau,"
 
 #: .\templates\review_delete.html:3
 msgid "Aquarium: Comment delete"
@@ -236,6 +293,12 @@ msgstr "Vartotojas %s registruotas!"
 #: .\views.py:134
 msgid "Passwords do not match!"
 msgstr "Slaptažodžiai nesutampa!"
+
+#~ msgid "Password"
+#~ msgstr "Slaptažodis:"
+
+#~ msgid "Delete"
+#~ msgstr "Ištrinti"
 
 #, fuzzy
 #~| msgid "Comment edit"
